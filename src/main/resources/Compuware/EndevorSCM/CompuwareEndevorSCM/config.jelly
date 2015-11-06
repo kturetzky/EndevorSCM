@@ -1,0 +1,32 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+  <f:nested>
+    <table>
+       </table>
+  </f:nested>
+  -->
+      <br/><br/><f:entry title="Host:Port" field="hostport">
+            <f:textbox/>
+      </f:entry>
+
+      <f:entry title="Filter pattern" field="filterPattern" description="Environment:System:Subsystem:Type:Stage:Element. Use * as a wildcard.">
+            <f:textarea/>
+      </f:entry>
+
+      <!--
+      <f:entry title="Check-out Strategy" field="checkout" description="Use 'update' whenever possible, making the build faster. Artifacts from the previous build to remain when a new build starts">
+          <f:select />
+      </f:entry>
+      -->
+
+      <!--
+      <f:entry title="Check-out Strategy" field="checkout" description="${descriptor.descript}">
+      <f:select />
+      </f:entry>
+      -->
+
+        <f:dropdownDescriptorSelector title="Check-out Strategy" field="workspaceUpdater" descriptors="${descriptor.getWorkspaceUpdaterDescriptors()}"/>
+ 
+</j:jelly>
+
